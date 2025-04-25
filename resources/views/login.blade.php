@@ -7,6 +7,7 @@
 </head>
 <body>
     <form action="" method="post">
+        @csrf
         <label for="email">Email</label>
         <input type="email" placeholder="Email" name="email" value="{{ old('email') }}">
 
