@@ -1,4 +1,3 @@
-{{-- filepath: d:\Laravel-Project_CRUD_application\resources\views\login.blade.php --}}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    @vite('resources/css/app.css') {{-- Ensure Tailwind CSS is included --}}
+    @vite('resources/css/app.css')
 </head>
 
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
@@ -19,7 +18,6 @@
              Back
          </a>
 
-         <!-- Heading -->
          <h2 class="text-3xl font-extrabold text-center mb-8 text-gray-800">Login</h2>
 
         <form action="{{ route('login.user') }}" method="post" class="space-y-4">
