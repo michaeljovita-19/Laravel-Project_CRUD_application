@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -66,7 +67,19 @@ class ProductController extends Controller
     public function update(UpdateProductRequest $request, Product
     $product): RedirectResponse
     {
+        // dd($request->validated());
         $product->update($request->validated());
+        if ($request->hasFile('picture')) {
+            if ($product->file_path) {
+                Storage::delete($product->file_path);
+            }
+
+            $file = $request->file('picture');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $filePath = $file->storeAs('uploads', $fileName, 'public');
+
+            $product->update(['file_path' => $filePath]);
+        }
         return redirect()->back()
             ->withSuccess('Product is updated successfully.');
     }

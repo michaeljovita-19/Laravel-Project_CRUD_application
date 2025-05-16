@@ -74,7 +74,7 @@
                         <div class="mb-3 row">
                             <label for="picture" class="col-md-4 col-formlabel text-md-end text-start">Picture</label>
                             <div class="col-md-6">
-                                <input type="file" name="picture" id="picture" value="{{ old('picture') }}"
+                                <input type="file" name="picture" id="picture"
                                     class="form-control @error('picture') is-invalid @enderror">
                                 @error('picture')
                                     <span class="text-danger">{{ $message }}</span>
