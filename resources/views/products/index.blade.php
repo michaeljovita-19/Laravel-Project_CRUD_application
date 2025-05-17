@@ -2,7 +2,7 @@
 @section('content')
     <div class="row justify-content-center mt-3">
         <div>
-            <a href="{{ route('logout') }}" class="btn btn-success btn-sm my-2"><i class="bi bi-plus-circle"></i> Logout</a>
+            <a href="{{ route('logout') }}">Logout</a>
         </div>
         <div class="col-md-12">
             @session('success')

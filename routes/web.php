@@ -23,4 +23,4 @@ Route::get('/dashboard', function () {
     return view('products.index', ['products' => $products]);
 })->middleware(['auth'])->name('dashboard');
 
-Route::resource('/products', ProductController::class)->middleware(['auth'])->names('products');
+Route::resource('/products', ProductController::class)->names('products');

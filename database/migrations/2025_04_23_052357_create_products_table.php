@@ -3,7 +3,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
-    /**
+    /** 
      * Run the migrations.
      */
     public function up(): void
@@ -15,7 +15,6 @@ return new class extends Migration {
             $table->integer('quantity');
             $table->decimal('price', 8, 2);
             $table->text('description')->nullable();
-            $table->string('file_path')->nullable();
             $table->timestamps();
         });
     }
