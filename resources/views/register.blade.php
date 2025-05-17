@@ -1,78 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
+<x-loginLayout>
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="bg-white shadow-lg rounded p-4 w-100" style="max-width: 400px;">
+            <!-- Back Button -->
+            <a href="{{ url()->previous() }}" class="text-primary text-decoration-none d-flex align-items-center mb-3">
+                <i class="bi bi-arrow-left"></i> Back
+            </a>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    @vite('resources/css/app.css')
-</head>
+            <!-- Registration Heading -->
+            <h2 class="text-center fw-bold mb-4 text-dark">Create Your Account</h2>
 
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
-    <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
-        <a href="{{ url()->previous() }}"
-           class="text-blue-500 hover:text-blue-700 hover:underline mb-6 inline-flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-            </svg>
-            Back
-        </a>
+            <!-- Registration Form -->
+            <form action="{{ route('register') }}" method="POST">
+                @csrf
+                <div class="mb-3">
+                    <label for="name" class="form-label fw-medium">Name</label>
+                    <input type="text" id="name" name="name" value="{{ old('name') }}" placeholder="Your Name"
+                        class="form-control" required>
+                    @error('name')
+                        <div class="text-danger small mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
 
-        <h2 class="text-3xl font-extrabold text-center mb-8 text-gray-800">Create Your Account</h2>
+                <div class="mb-3">
+                    <label for="email" class="form-label fw-medium">Email</label>
+                    <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Your Email"
+                        class="form-control" required>
+                    @error('email')
+                        <div class="text-danger small mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
 
-        <form action="{{ route('register') }}" method="POST" class="space-y-6">
-            @csrf
+                <div class="mb-3">
+                    <label for="password" class="form-label fw-medium">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Your Password"
+                        class="form-control" required>
+                    @error('password')
+                        <div class="text-danger small mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
 
-            <div>
-                <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                <input type="text" id="name" name="name" value="{{ old('name') }}" placeholder="Your Name"
-                    class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                    required>
-                @error('name')
-                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                @enderror
+                <div class="mb-3">
+                    <label for="password_confirmation" class="form-label fw-medium">Confirm Password</label>
+                    <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirm Password"
+                        class="form-control" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Register</button>
+            </form>
+
+            <!-- Login Link -->
+            <div class="mt-3 text-center">
+                <p class="small text-muted">
+                    Already have an account?
+                    <a href="{{ route('login') }}" class="text-primary text-decoration-none">Login</a>
+                </p>
             </div>
-
-            <div>
-                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Your Email"
-                    class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                    required>
-                @error('email')
-                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                @enderror
-            </div>
-
-            <div>
-                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                <input type="password" id="password" name="password" placeholder="Your Password"
-                    class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                    required>
-                @error('password')
-                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                @enderror
-            </div>
-
-            <div>
-                <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Confirm Password</label>
-                <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirm Password"
-                    class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                    required>
-            </div>
-
-            <button type="submit"
-                class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                Register
-            </button>
-        </form>
-
-        <div class="mt-6 text-center">
-            <p class="text-sm text-gray-600">
-                Already have an account?
-                <a href="{{ route('login') }}" class="text-blue-500 hover:underline">Login</a>
-            </p>
         </div>
     </div>
-</body>
-
-</html>
+</x-loginLayout>
