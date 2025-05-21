@@ -91,7 +91,7 @@
                             @endif
                         </div>
 
-                        <div class="mb-3 row">
+                        <div class="mb-3 row justify-content-center">
                             <input type="submit" class="col-md-3 offsetmd-5 btn btn-primary" value="Add Product">
                         </div>
                     </form>

@@ -67,10 +67,9 @@ class ProductController extends Controller
     public function update(UpdateProductRequest $request, Product
     $product): RedirectResponse
     {
-        // dd($request->validated());
         $product->update($request->validated());
         if ($request->hasFile('picture')) {
-            if ($product->file_path) {
+            if ($product->file_path && Storage::exists($product->file_path)) {
                 Storage::delete($product->file_path);
             }
 

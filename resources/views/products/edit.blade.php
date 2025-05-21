@@ -8,6 +8,7 @@
                 </div>
             @endsession
             <div class="card">
+                
                 <div class="card-header">
                     <div class="float-start">
                         Edit Product
@@ -18,7 +19,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('products.update', $product->id) }}" method="post" enctype="multipart/form-data">>
+                    <form action="{{ route('products.update', $product->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="mb-3 row">
@@ -79,7 +80,7 @@
 
                         <div class="mb-3 row">
                             <label for="picture"
-                                class="col-md-4 col-form-label text-md-end text-start"><strong>Image</strong></label>
+                            class="col-md-4 colform-label text-md-end text-start">Image</label>
                             <div class="col-md-6 d-flex flex-column align-items-start">
                                 <input type="file" id="picture" name="picture"
                                     class="form-control @error('picture') is-invalid @enderror">
@@ -95,7 +96,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-3 row">
+                        <div class="mb-3 row justify-content-center">
                             <input type="submit" class="col-md-3 offsetmd-5 btn btn-primary" value="Update">
                         </div>
                     </form>

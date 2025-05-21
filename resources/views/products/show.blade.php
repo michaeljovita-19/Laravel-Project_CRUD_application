@@ -3,7 +3,6 @@
     <div class="row justify-content-center mt-3">
         <div class="col-md-8">
             <div class="card">
-                <div>
                     <div class="card-header">
                         <div class="float-start">
                             Product Information
@@ -60,6 +59,5 @@
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         @endsection

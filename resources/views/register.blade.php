@@ -1,15 +1,13 @@
 <x-loginLayout>
     <div class="container d-flex justify-content-center align-items-center vh-100">
         <div class="bg-white shadow-lg rounded p-4 w-100" style="max-width: 400px;">
-            <!-- Back Button -->
+
             <a href="{{ url()->previous() }}" class="text-primary text-decoration-none d-flex align-items-center mb-3">
                 <i class="bi bi-arrow-left"></i> Back
             </a>
 
-            <!-- Registration Heading -->
             <h2 class="text-center fw-bold mb-4 text-dark">Create Your Account</h2>
 
-            <!-- Registration Form -->
             <form action="{{ route('register') }}" method="POST">
                 @csrf
                 <div class="mb-3">
@@ -48,7 +46,6 @@
                 <button type="submit" class="btn btn-primary w-100">Register</button>
             </form>
 
-            <!-- Login Link -->
             <div class="mt-3 text-center">
                 <p class="small text-muted">
                     Already have an account?

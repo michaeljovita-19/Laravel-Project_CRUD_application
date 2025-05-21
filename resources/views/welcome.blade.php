@@ -269,13 +269,5 @@
                 </div>
             </main>
         </div>
-
-        <form action="{{ route('login') }}" method="GET">
-            <button type="submit">Login</button>
-        </form>
-        
-        @if (Route::has('login'))
-            <div class="h-14.5 hidden lg:block"></div>
-        @endif
     </body>
 </html>
